@@ -73,7 +73,6 @@ router.post("/login", async (req, res) => {
 });
 
 // GET /api/profile (Protected)
-// GET /api/profile (Protected)
 router.get("/profile", authMiddleware, async (req, res) => {
   try {
     const user = await User.findById(req.user.id).select("name email");

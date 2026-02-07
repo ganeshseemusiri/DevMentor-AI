@@ -1,0 +1,80 @@
+
+
+.login-bg {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-image: url("https://wallpaperaccess.com/full/4893763.jpg");
+}
+
+.auth-container {
+    background: #fff;
+    padding: 32px;
+    border-radius: 14px;
+    width: 100%;
+    max-width: 420px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+    text-align: center;
+}
+
+.auth-form {
+    margin-top: 20px;
+}
+
+.input-group {
+    width: 100%;
+    margin-bottom: 16px;
+    position: relative;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 12px 14px;
+    border-radius: 8px;
+    border: 1px solid #cbd5e1;
+    font-size: 16px;
+    box-sizing: border-box;
+    outline: none;
+}
+
+.input-group input:focus {
+    border-color: #4f46e5;
+}
+
+.password-group .toggle-btn {
+    position: absolute;
+    right: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    color: #4f46e5;
+    cursor: pointer;
+    font-weight: 500;
+}
+
+.submit-btn {
+    width: 100%;
+    padding: 12px;
+    border: none;
+    border-radius: 8px;
+    background: #4f46e5;
+    color: #fff;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.submit-btn:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+}
+
+.error-text {
+    color: red;
+    margin-bottom: 12px;
+}
+
+.switch-text {
+    margin-top: 16px;
+}
