@@ -5,6 +5,7 @@ import "./index.css";
 
 function Home() {
   const navigate = useNavigate();
+  const API_URL = import.meta.env.VITE_API_URL;
 
   const [mode, setMode] = useState("chat");
   const [messages, setMessages] = useState([]);
@@ -20,7 +21,7 @@ function Home() {
       return;
     }
 
-    fetch("http://localhost:5000/api/profile", {
+    fetch(`${API_URL}/api/profile`, {
       headers: {
         Authorization: "Bearer " + token,
       },
@@ -37,7 +38,7 @@ function Home() {
       });
 
     setMessages(getInitialMessages("chat"));
-  }, [navigate]);
+  }, [navigate, API_URL]);
 
   const getInitialMessages = (selectedMode) => {
     if (selectedMode === "interview") {
@@ -88,7 +89,7 @@ function Home() {
     setMessages((prev) => [...prev, { sender: "bot", text: "Bot is typing..." }]);
 
     try {
-      const res = await fetch("http://localhost:5000/chat", {
+      const res = await fetch(`${API_URL}/chat`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ message: input, mode }),
@@ -116,7 +117,6 @@ function Home() {
   return (
     <div className="app-container">
       <div className="chat-box">
-        {/* Header */}
         <div className="chat-header">
           <div className="nav-left">
             <FaRobot className="logo-icon" />
@@ -148,7 +148,6 @@ function Home() {
 
         {userName && <div className="welcome-user">Hi, {userName.toUpperCase()} 👋</div>}
 
-        {/* Messages */}
         <div className="messages">
           {messages.map((msg, index) => (
             <div
@@ -171,7 +170,6 @@ function Home() {
           ))}
         </div>
 
-        {/* Input */}
         <div className="input-area">
           <input
             type="text"
@@ -186,7 +184,6 @@ function Home() {
         </div>
       </div>
 
-      {/* Logout Modal */}
       {showLogoutModal && (
         <div className="modal-overlay">
           <div className="modal-box">

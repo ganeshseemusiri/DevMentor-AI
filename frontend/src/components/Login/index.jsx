@@ -10,14 +10,14 @@ const Login = () => {
   const [error, setError] = useState("");
 
   const navigate = useNavigate();
+  const API_URL = import.meta.env.VITE_API_URL;
 
-    useEffect(() => {
+  useEffect(() => {
     const token = localStorage.getItem("token");
     if (token) {
       navigate("/", { replace: true });
     }
   }, [navigate]);
-
 
   const handleLogin = async (e) => {
     e.preventDefault();
@@ -31,7 +31,7 @@ const Login = () => {
       setLoading(true);
       setError("");
 
-      const res = await fetch("http://localhost:5000/api/login", {
+      const res = await fetch(`${API_URL}/api/login`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ email, password }),
