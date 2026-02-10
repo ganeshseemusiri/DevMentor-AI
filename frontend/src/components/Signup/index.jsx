@@ -8,11 +8,12 @@ const Signup = () => {
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
-  const [showConfirmPassword, setShowConfirmPassword] = useState(false)
+  const [showConfirmPassword, setShowConfirmPassword] = useState(false);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
 
   const navigate = useNavigate();
+  const API_URL = import.meta.env.VITE_API_URL;
 
   useEffect(() => {
     const token = localStorage.getItem("token");
@@ -38,7 +39,7 @@ const Signup = () => {
       setLoading(true);
       setError("");
 
-      const res = await fetch("https://devmentor-ai.onrender.com/api/signup", {
+      const res = await fetch(`${API_URL}/api/signup`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ name, email, password }),
@@ -52,7 +53,7 @@ const Signup = () => {
         return;
       }
 
-      navigate("/login",{replace:true});
+      navigate("/login", { replace: true });
     } catch (err) {
       console.error(err);
       setError("Server error. Try again later.");
