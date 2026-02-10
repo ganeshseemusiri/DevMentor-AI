@@ -118,27 +118,27 @@ function Home() {
       <div className="chat-box">
         {/* Header */}
         <div className="chat-header">
-          <div className="header-row">
-            <div className="title">
-              <FaRobot className="header-icon" />
-              <h3>DevMentor AI</h3>
-            </div>
+          <div className="nav-left">
+            <FaRobot className="logo-icon" />
+            <span className="logo-text">MentorHub AI</span>
+          </div>
 
-            <div className="modes">
-              <button
-                className={mode === "chat" ? "active" : ""}
-                onClick={() => switchMode("chat")}
-              >
-                Chat
-              </button>
-              <button
-                className={mode === "interview" ? "active" : ""}
-                onClick={() => switchMode("interview")}
-              >
-                Interview
-              </button>
-            </div>
+          <div className="nav-center">
+            <button
+              className={mode === "chat" ? "mode-btn active" : "mode-btn"}
+              onClick={() => switchMode("chat")}
+            >
+              Chat
+            </button>
+            <button
+              className={mode === "interview" ? "mode-btn active" : "mode-btn"}
+              onClick={() => switchMode("interview")}
+            >
+              Interview
+            </button>
+          </div>
 
+          <div className="nav-right">
             <button className="logout-btn" onClick={() => setShowLogoutModal(true)}>
               <span className="logout-text">Logout</span>
               <FaSignOutAlt className="logout-icon" />
