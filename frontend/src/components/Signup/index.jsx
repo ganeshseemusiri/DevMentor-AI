@@ -65,7 +65,7 @@ const Signup = () => {
   return (
     <div className="auth-page signup-bg">
       <div className="auth-container">
-        <h2 className="title">Welcome To MentorHub AI</h2>
+        <h2 className="title">Welcome To DevMentor AI</h2>
         <h3>Create Account</h3>
 
         <form onSubmit={handleSignup} className="auth-form">

@@ -120,7 +120,7 @@ function Home() {
         <div className="chat-header">
           <div className="nav-left">
             <FaRobot className="logo-icon" />
-            <span className="logo-text">MentorHub AI</span>
+            <span className="logo-text">DevMentor AI</span>
           </div>
 
           <div className="nav-center">
